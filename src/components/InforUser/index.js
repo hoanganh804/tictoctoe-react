@@ -34,7 +34,7 @@ export default function InforUser({
   }, [statusSquare, startGame]);
 
   useEffect(() => {
-    if (timer < 50) {
+    if (timer < 0) {
       handleTimeOut(statusSquare);
     }
   }, [timer, statusSquare, handleTimeOut]);
