@@ -97,7 +97,7 @@ export default function Login() {
         onClick={(e) => saveUser(e)}
         shape="round"
         className="button_start"
-        href="/tictoctoeapp"
+        href="/tictoctoe-react/tictoctoeapp"
       >
         START
       </Button>
