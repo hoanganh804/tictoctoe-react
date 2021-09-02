@@ -8,7 +8,7 @@ function App() {
   return (
     <div className="App">
       <Switch>
-        <Route exact path="/tictoctoe-react/" component={Login} />
+        <Route exact path="/tictoctoe-react/login" component={Login} />
         <Route path="/tictoctoe-react/tictoctoeapp" component={TictoctoeApp} />
       </Switch>
     </div>
