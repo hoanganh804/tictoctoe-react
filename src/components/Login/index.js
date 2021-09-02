@@ -5,6 +5,7 @@ import { Input } from "antd";
 import { UserOutlined } from "@ant-design/icons";
 import { Select } from "antd";
 import { message, Space } from "antd";
+import { Link } from "react-router-dom";
 
 const { Option } = Select;
 const error = (mess) => {
@@ -93,14 +94,14 @@ export default function Login() {
         </div>
       </div>
 
-      <Button
+      <Link
+        to="/tictoctoe-react/tictoctoeapp"
         onClick={(e) => saveUser(e)}
         shape="round"
         className="button_start"
-        href="/tictoctoe-react/tictoctoeapp"
       >
         START
-      </Button>
+      </Link>
     </div>
   );
 }
