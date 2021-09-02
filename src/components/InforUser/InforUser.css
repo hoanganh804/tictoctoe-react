@@ -1,0 +1,52 @@
+.user {
+  font-size: 24px;
+  font-weight: 500;
+}
+.form_user {
+  color: rgb(240, 240, 240);
+  width: 160px;
+  height: 120px;
+}
+.user_status {
+  color: rgb(199, 199, 199);
+  margin-top: 20px;
+  font-weight: 700;
+  font-size: 26px;
+}
+.form_control {
+  width: 100px;
+  height: 120px;
+
+  display: flex;
+  flex-direction: column;
+}
+.time {
+  color: aliceblue;
+  font-size: 20px;
+  padding-top: 20px;
+  font-weight: 500;
+}
+.button_reset {
+  margin-top: 14px;
+}
+@media screen and (max-width: 450px) {
+  .time {
+    font-size: 16px;
+  }
+  .form_control {
+    padding-top: 8px;
+    width: 80px;
+  }
+  .form_user {
+    width: 120px;
+    height: 100px;
+  }
+  .user_status {
+    font-size: 20px;
+  }
+  .user {
+    padding-top: 10px;
+    font-size: 20px;
+    font-weight: 500;
+  }
+}

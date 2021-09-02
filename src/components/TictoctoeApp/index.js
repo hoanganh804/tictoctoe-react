@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from "react";
+import InforUser from "../InforUser";
 import Rows from "../Rows";
+import "./TictoctoeApp.css";
+import { message } from "antd";
 
 export default function TictoctoeApp() {
   const [dataRows, setDataRows] = useState([]);
   const [statusSquare, setStatusSquare] = useState(1);
   const [winer, setWiner] = useState(0);
   const [clearData, setClearData] = useState(true);
+  const [startGame, setStartGame] = useState(false);
 
   useEffect(() => {
     if (clearData) {
@@ -28,17 +32,32 @@ export default function TictoctoeApp() {
   }, [clearData]);
 
   useEffect(() => {
-    if (winer) {
-      alert(`${winer} thang cuoc`);
-      setClearData(true);
+    if (winer === 1) {
+      const messWin = `reset game after 2s`;
+      success(messWin, 2);
+      setTimeout(() => {
+        setClearData(true);
+      }, 2000);
+    }
+    if (winer && winer !== 1) {
+      const messWin = `${winer} win, reset game after 5s`;
+      success(messWin, 4.5);
+      setTimeout(() => {
+        setClearData(true);
+      }, 5000);
     }
   }, [winer]);
+
+  const success = (messWin, duration) => {
+    message.loading(messWin, duration).then(() => message.info("Done!", 1.5));
+  };
 
   const handleClickSquare = (idRow, idCol) => {
     const newDataRows = [...dataRows];
     let dataSquare = newDataRows[idRow][idCol];
 
     if (!dataSquare) {
+      setStartGame(true);
       if (statusSquare === 1) {
         newDataRows[idRow][idCol] = "X";
         setStatusSquare(2);
@@ -120,22 +139,42 @@ export default function TictoctoeApp() {
     }
     if (scoreCheck === 5) {
       setWiner(str);
+      setStartGame(false);
     }
   };
 
+  const onClickReset = () => {
+    setWiner(1);
+    setStartGame(false);
+  };
+
+  const handleTimeOut = (statusSquareLose) => {
+    setWiner(statusSquare === 1 ? "O" : "X");
+    setStartGame(false);
+  };
+
   return (
-    <div>
-      <h1>hello</h1>
-      {dataRows.map((rows, idRow) => {
-        return (
-          <Rows
-            key={idRow}
-            idRow={idRow}
-            rows={rows}
-            handleClickSquare={handleClickSquare}
-          />
-        );
-      })}
-    </div>
+    <>
+      <div className="main_user">
+        <InforUser
+          handleTimeOut={handleTimeOut}
+          statusSquare={statusSquare}
+          onClickReset={onClickReset}
+          startGame={startGame}
+        />
+      </div>
+      <div className="main_app">
+        {dataRows.map((rows, idRow) => {
+          return (
+            <Rows
+              key={idRow}
+              idRow={idRow}
+              rows={rows}
+              handleClickSquare={handleClickSquare}
+            />
+          );
+        })}
+      </div>
+    </>
   );
 }

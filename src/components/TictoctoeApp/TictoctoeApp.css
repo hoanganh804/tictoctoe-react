@@ -1,0 +1,35 @@
+.main_app {
+  background-color: rgba(215, 215, 215, 0.139);
+  margin-top: 20px;
+  border-radius: 20px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  width: 460px;
+  height: 460px;
+}
+.main_user {
+  width: 460px;
+  height: 140px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: rgba(215, 215, 215, 0.139);
+  margin-top: 30px;
+  border-radius: 20px;
+}
+@media screen and (max-width: 450px) {
+  .main_app {
+    width: 360px;
+    height: 360px;
+  }
+  .main_user {
+    width: 360px;
+    height: 100px;
+  }
+}

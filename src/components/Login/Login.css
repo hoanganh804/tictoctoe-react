@@ -1,0 +1,44 @@
+.form_login {
+  background-color: rgba(215, 215, 215, 0.139);
+  margin-top: 20px;
+  border-radius: 20px;
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+
+  width: 380px;
+  height: 560px;
+}
+h1 {
+  color: rgb(235, 235, 235);
+  font-size: 40px;
+  margin-top: 20px;
+  margin-bottom: 0;
+}
+.button_start {
+  color: rgb(52, 52, 52);
+  font-size: 20px;
+  font-weight: 700;
+  border: 0;
+  background-color: rgba(228, 228, 228, 0.509);
+  width: 120px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+
+.input_user {
+  width: 300px;
+  margin: 6px;
+}
+.form_select {
+  display: flex;
+  justify-content: space-between;
+  margin: 6px auto;
+  width: 300px;
+}
