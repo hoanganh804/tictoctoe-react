@@ -1,26 +1,26 @@
 {
   "files": {
-    "main.css": "/tictoctoe-react/login/static/css/main.732296e3.chunk.css",
-    "main.js": "/tictoctoe-react/login/static/js/main.ce615f49.chunk.js",
-    "main.js.map": "/tictoctoe-react/login/static/js/main.ce615f49.chunk.js.map",
-    "runtime-main.js": "/tictoctoe-react/login/static/js/runtime-main.563f159b.js",
-    "runtime-main.js.map": "/tictoctoe-react/login/static/js/runtime-main.563f159b.js.map",
-    "static/css/2.a95be28f.chunk.css": "/tictoctoe-react/login/static/css/2.a95be28f.chunk.css",
-    "static/js/2.2068cd23.chunk.js": "/tictoctoe-react/login/static/js/2.2068cd23.chunk.js",
-    "static/js/2.2068cd23.chunk.js.map": "/tictoctoe-react/login/static/js/2.2068cd23.chunk.js.map",
-    "static/js/3.6384f7c6.chunk.js": "/tictoctoe-react/login/static/js/3.6384f7c6.chunk.js",
-    "static/js/3.6384f7c6.chunk.js.map": "/tictoctoe-react/login/static/js/3.6384f7c6.chunk.js.map",
-    "index.html": "/tictoctoe-react/login/index.html",
-    "static/css/2.a95be28f.chunk.css.map": "/tictoctoe-react/login/static/css/2.a95be28f.chunk.css.map",
-    "static/css/main.732296e3.chunk.css.map": "/tictoctoe-react/login/static/css/main.732296e3.chunk.css.map",
-    "static/js/2.2068cd23.chunk.js.LICENSE.txt": "/tictoctoe-react/login/static/js/2.2068cd23.chunk.js.LICENSE.txt",
-    "static/media/App.css": "/tictoctoe-react/login/static/media/background.36db7e5e.gif"
+    "main.css": "/tictoctoe-react/static/css/main.1fd50c66.chunk.css",
+    "main.js": "/tictoctoe-react/static/js/main.79b487eb.chunk.js",
+    "main.js.map": "/tictoctoe-react/static/js/main.79b487eb.chunk.js.map",
+    "runtime-main.js": "/tictoctoe-react/static/js/runtime-main.b7fbfe13.js",
+    "runtime-main.js.map": "/tictoctoe-react/static/js/runtime-main.b7fbfe13.js.map",
+    "static/css/2.a95be28f.chunk.css": "/tictoctoe-react/static/css/2.a95be28f.chunk.css",
+    "static/js/2.f27510fc.chunk.js": "/tictoctoe-react/static/js/2.f27510fc.chunk.js",
+    "static/js/2.f27510fc.chunk.js.map": "/tictoctoe-react/static/js/2.f27510fc.chunk.js.map",
+    "static/js/3.6384f7c6.chunk.js": "/tictoctoe-react/static/js/3.6384f7c6.chunk.js",
+    "static/js/3.6384f7c6.chunk.js.map": "/tictoctoe-react/static/js/3.6384f7c6.chunk.js.map",
+    "index.html": "/tictoctoe-react/index.html",
+    "static/css/2.a95be28f.chunk.css.map": "/tictoctoe-react/static/css/2.a95be28f.chunk.css.map",
+    "static/css/main.1fd50c66.chunk.css.map": "/tictoctoe-react/static/css/main.1fd50c66.chunk.css.map",
+    "static/js/2.f27510fc.chunk.js.LICENSE.txt": "/tictoctoe-react/static/js/2.f27510fc.chunk.js.LICENSE.txt",
+    "static/media/App.css": "/tictoctoe-react/static/media/background.36db7e5e.gif"
   },
   "entrypoints": [
-    "static/js/runtime-main.563f159b.js",
+    "static/js/runtime-main.b7fbfe13.js",
     "static/css/2.a95be28f.chunk.css",
-    "static/js/2.2068cd23.chunk.js",
-    "static/css/main.732296e3.chunk.css",
-    "static/js/main.ce615f49.chunk.js"
+    "static/js/2.f27510fc.chunk.js",
+    "static/css/main.1fd50c66.chunk.css",
+    "static/js/main.79b487eb.chunk.js"
   ]
 }
