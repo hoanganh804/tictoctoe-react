@@ -1,9 +1,17 @@
 import React from "react";
 import "./Square.css";
 
-export default function Square({ handleClickSquare, idRow, idCol, square }) {
+export default function Square({
+  startGame,
+  handleClickSquare,
+  idRow,
+  idCol,
+  square,
+}) {
+  // console.log(startGame);
   return (
     <button
+      // disabled={!startGame}
       className="square"
       style={
         square === "X"

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./InforUser.css";
 import { Button } from "antd";
+import { Link } from "react-router-dom";
 
 export default function InforUser({
   onClickReset,
@@ -60,6 +61,9 @@ export default function InforUser({
         <Button onClick={onClickReset} className="button_reset" ghost>
           Reset
         </Button>
+        <Link to="/tictoctoe-react/" className="button_exit">
+          Exit
+        </Link>
       </div>
       <div className="form_user">
         <div className="user user2">{user.user2}</div>

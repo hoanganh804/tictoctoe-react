@@ -38,6 +38,7 @@ h1 {
 }
 
 .input_user {
+  font-size: 14px;
   width: 300px;
   margin: 6px;
 }

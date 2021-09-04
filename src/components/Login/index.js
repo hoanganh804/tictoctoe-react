@@ -1,13 +1,10 @@
-import { Button } from "antd";
 import React, { useState } from "react";
 import "./Login.css";
 import { Input } from "antd";
 import { UserOutlined } from "@ant-design/icons";
-import { Select } from "antd";
-import { message, Space } from "antd";
+import { message } from "antd";
 import { Link } from "react-router-dom";
 
-const { Option } = Select;
 const error = (mess) => {
   message.error(mess);
 };
@@ -18,9 +15,10 @@ export default function Login() {
     user2: "",
   });
 
-  function onChange(value) {
-    console.log(`selected ${value}`);
-  }
+  const [configGame, setConfigGame] = useState({
+    size: 10,
+    win: 5,
+  });
 
   const saveUser = (e) => {
     if (inforUser.user1 === "" && inforUser.user2 !== "") {
@@ -35,6 +33,15 @@ export default function Login() {
       e.preventDefault();
       error(`Please fill User 1 and User 2`);
     }
+    if (configGame.size >= 12) {
+      e.preventDefault();
+      error(`Please fill size < 12`);
+    }
+    if (configGame.win > 6) {
+      e.preventDefault();
+      error(`Please fill condition < 7`);
+    }
+    localStorage.setItem("config", JSON.stringify(configGame));
     localStorage.setItem("user-tictoctoe", JSON.stringify(inforUser));
   };
 
@@ -45,6 +52,20 @@ export default function Login() {
   const onChaneUser2 = (value) => {
     const user2 = value.target.value;
     setInforUser({ user1: inforUser.user1, user2: user2 });
+  };
+  const onChaneUser3 = (value) => {
+    const size = parseInt(value.target.value);
+    setConfigGame({
+      size: size,
+      win: configGame.win,
+    });
+  };
+  const onChaneUser4 = (value) => {
+    const win = parseInt(value.target.value);
+    setConfigGame({
+      size: configGame.size,
+      win: win,
+    });
   };
 
   return (
@@ -68,30 +89,20 @@ export default function Login() {
           placeholder="Input User 2"
           prefix={<UserOutlined />}
         />
-
-        <div className="form_select">
-          <Select
-            style={{ width: 136 }}
-            placeholder="Select"
-            optionFilterProp="children"
-            onChange={onChange}
-          >
-            <Option value="jack">Jack</Option>
-            <Option value="lucy">Lucy</Option>
-            <Option value="tom">Tom</Option>
-          </Select>
-
-          <Select
-            style={{ width: 136 }}
-            placeholder="Select"
-            optionFilterProp="children"
-            onChange={onChange}
-          >
-            <Option value="jack">Jack</Option>
-            <Option value="lucy">Lucy</Option>
-            <Option value="tom">Tom</Option>
-          </Select>
-        </div>
+        <Input
+          onChange={onChaneUser3}
+          // value={configGame.size}
+          className="input_user"
+          size="large"
+          placeholder="Input size of game ... ex: 10 (10x10)"
+        />
+        <Input
+          onChange={onChaneUser4}
+          // value={configGame.win}
+          className="input_user"
+          size="large"
+          placeholder="Input condition win ... ex: 5 (5 O to win)"
+        />
       </div>
 
       <Link

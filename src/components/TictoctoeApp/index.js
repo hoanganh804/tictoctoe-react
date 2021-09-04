@@ -10,42 +10,64 @@ export default function TictoctoeApp() {
   const [winer, setWiner] = useState(0);
   const [clearData, setClearData] = useState(true);
   const [startGame, setStartGame] = useState(false);
+  const [configGame, setConfigGame] = useState({
+    size: 0,
+    win: 0,
+  });
+
+  useEffect(() => {
+    const config = JSON.parse(localStorage.getItem("config"));
+    if (config) {
+      setConfigGame({
+        size: config.size,
+        win: config.win,
+      });
+    }
+  }, []);
 
   useEffect(() => {
     if (clearData) {
-      const row = [null, null, null, null, null, null, null, null, null, null];
-      const allRows = [
-        [...row],
-        [...row],
-        [...row],
-        [...row],
-        [...row],
-        [...row],
-        [...row],
-        [...row],
-        [...row],
-        [...row],
-      ];
+      const row = [];
+      for (let i = 0; i < configGame.size; i++) {
+        row.push(null);
+      }
+      const allRows = [];
+      for (let i = 0; i < configGame.size; i++) {
+        allRows.push([...row]);
+      }
       setDataRows(allRows);
       setClearData(false);
     }
-  }, [clearData]);
+    const row = [];
+    for (let i = 0; i < configGame.size; i++) {
+      row.push(null);
+    }
+    const allRows = [];
+    for (let i = 0; i < configGame.size; i++) {
+      allRows.push([...row]);
+    }
+    setDataRows(allRows);
+  }, [clearData, configGame.size]);
 
   useEffect(() => {
+    let idTOClear = null;
     if (winer === 1) {
       const messWin = `reset game after 2s`;
       success(messWin, 2);
-      setTimeout(() => {
+      idTOClear = setTimeout(() => {
         setClearData(true);
       }, 2000);
     }
     if (winer && winer !== 1) {
       const messWin = `${winer} win, reset game after 5s`;
       success(messWin, 4.5);
-      setTimeout(() => {
+      idTOClear = setTimeout(() => {
         setClearData(true);
       }, 5000);
     }
+    return () => {
+      clearTimeout(idTOClear);
+    };
   }, [winer]);
 
   const success = (messWin, duration) => {
@@ -126,9 +148,9 @@ export default function TictoctoeApp() {
 
   const logicCheck = (arrCheck, str) => {
     let scoreCheck = 1;
-    for (let i = 0; i < 10; i++) {
-      for (let j = i; j < i + 5; j++) {
-        if (scoreCheck < 5) {
+    for (let i = 0; i < configGame.size; i++) {
+      for (let j = i; j < i + configGame.win; j++) {
+        if (scoreCheck < configGame.win) {
           if (arrCheck[j] === arrCheck[j + 1] - 1) {
             scoreCheck = scoreCheck + 1;
           } else {
@@ -137,7 +159,8 @@ export default function TictoctoeApp() {
         }
       }
     }
-    if (scoreCheck === 5) {
+
+    if (scoreCheck === configGame.win) {
       setWiner(str);
       setStartGame(false);
     }
@@ -171,6 +194,7 @@ export default function TictoctoeApp() {
               idRow={idRow}
               rows={rows}
               handleClickSquare={handleClickSquare}
+              startGame={startGame}
             />
           );
         })}
