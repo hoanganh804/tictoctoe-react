@@ -33,13 +33,13 @@ export default function Login() {
       e.preventDefault();
       error(`Please fill User 1 and User 2`);
     }
-    if (configGame.size >= 12) {
+    if (configGame.size >= 12 || configGame.size < 3) {
       e.preventDefault();
-      error(`Please fill size < 12`);
+      error(`Please fill size < 12 and > 2`);
     }
-    if (configGame.win > 6) {
+    if (configGame.win > 6 || configGame.win < 3) {
       e.preventDefault();
-      error(`Please fill condition < 7`);
+      error(`Please fill condition < 7 and > 2`);
     }
     localStorage.setItem("config", JSON.stringify(configGame));
     localStorage.setItem("user-tictoctoe", JSON.stringify(inforUser));
